@@ -6,8 +6,6 @@ import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
 import { Route, BrowserRouter } from 'react-router-dom';
 
-
-// aaaaaaaAAAA
 const App = () => {
   return (
     <BrowserRouter>
