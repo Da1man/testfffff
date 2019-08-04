@@ -12,3 +12,8 @@
 .item a.activeLink {
     color: gold;
 }
+
+.hSeparator {
+    margin: 30px 0px
+}
+

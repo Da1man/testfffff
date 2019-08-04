@@ -1,0 +1,14 @@
+.friendsItem {
+    width: 50px;
+    padding: 10px;
+}
+
+.friendAvatar img {
+    width: 100%;
+}
+
+.friendsName {
+    font-size: 12px;
+    text-align: center;
+    color: white;
+}
