@@ -23,3 +23,27 @@
 .messages .message {
     color: white;
 }
+
+.addMessageBtn {
+    padding: 10px 35px;
+    border-radius: 20px;
+    background-color: white;
+    border: none;
+    text-transform: uppercase;
+}
+
+.addMessageTextArea {
+    width: 300px;
+    height: 50px;
+    border: none;
+    padding: 20px;
+}
+
+.clearTextArea {
+    margin-left: 35px;
+    padding: 10px 35px;
+    border-radius: 20px;
+    background-color: rgb(177, 177, 177);
+    border: none;
+    text-transform: uppercase;
+}

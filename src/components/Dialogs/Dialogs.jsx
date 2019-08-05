@@ -6,6 +6,17 @@ import Message from './Message/Message'
 
 const Dialogs = (props) => {
 
+    let addMessageArea = React.createRef();
+
+    let addMessage = () => {
+        let newMessage = addMessageArea.current.value;
+        alert(newMessage);
+    }
+
+    let clearTextArea = () => {
+        addMessageArea.current.value = '';
+    }
+
 
 
     let dialogsElemnets = props.state.dialogs
@@ -24,6 +35,14 @@ const Dialogs = (props) => {
             <div className={s.messages}>
 
                 {messagesElements}
+                <br />
+                <div>
+                <textarea className={s.addMessageTextArea} ref={addMessageArea}></textarea>
+                </div>
+                <div>
+                    <button className={s.addMessageBtn} onClick={addMessage}>Add message</button>
+                    <button className={s.clearTextArea} onClick={clearTextArea}>Clear</button>
+                </div>
 
             </div>
 
