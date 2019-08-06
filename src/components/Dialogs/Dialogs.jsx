@@ -13,7 +13,7 @@ const Dialogs = (props) => {
         alert(newMessage);
     }
 
-    let clearTextArea = () => {
+    let clearTextAreaBtn = () => {
         addMessageArea.current.value = '';
     }
 
@@ -41,7 +41,7 @@ const Dialogs = (props) => {
                 </div>
                 <div>
                     <button className={s.addMessageBtn} onClick={addMessage}>Add message</button>
-                    <button className={s.clearTextArea} onClick={clearTextArea}>Clear</button>
+                    <button className={s.clearTextAreaBtn} onClick={clearTextAreaBtn}>Clear</button>
                 </div>
 
             </div>
