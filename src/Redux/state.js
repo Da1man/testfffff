@@ -1,4 +1,6 @@
-import {rerenderEntryTree} from '../render'
+let rerenderEntryTree = () => {
+    console.log('state is changed');
+}
 
 let state = {
     profilePage: {
@@ -42,7 +44,7 @@ let state = {
 
 window.state = state;
 
-export let addPost = () => {
+export const addPost = () => {
 
     let newPost = {
         id: 5,
@@ -54,9 +56,13 @@ export let addPost = () => {
     rerenderEntryTree(state);
 }
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText
-    rerenderEntryTree(state);
+    rerenderEntryTree();
+}
+
+export const subscribe = (observer) => {
+    rerenderEntryTree = observer;
 }
 
 
