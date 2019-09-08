@@ -2,28 +2,33 @@ import React from 'react'
 import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
+import {updateNewMessageBodyCeator, sendMessageCreator} from '../../Redux/state'
 
 
 const Dialogs = (props) => {
 
+    let state = props.store.getState().dialogsPage;
+
     let addMessageArea = React.createRef();
 
-    let addMessage = () => {
-        let newMessage = addMessageArea.current.value;
-        alert(newMessage);
-    }
+    let clearTextAreaBtn = () => { addMessageArea.current.value = ''; };
 
-    let clearTextAreaBtn = () => {
-        addMessageArea.current.value = '';
-    }
+    let onSendMessageClick = () => { props.store.dispatch(sendMessageCreator())};
+
+    let onNewMessageChange = (e) => {
+        let body = e.target.value;
+        props.store.dispatch(updateNewMessageBodyCeator(body));
+    } 
 
 
 
-    let dialogsElemnets = props.state.dialogs
+    let dialogsElemnets = state.dialogs
         .map(d => <DialogItem name={d.name} id={d.id} />);
 
-    let messagesElements = props.state.messages
+    let messagesElements = state.messages
         .map(m => <Message message={m.message} />);
+
+    let newMessageBody = state.newMessageBody;
 
     return (
         <div className={s.dialogs}>
@@ -37,12 +42,17 @@ const Dialogs = (props) => {
                 {messagesElements}
                 <br />
                 <div>
-                <textarea className={s.addMessageTextArea} ref={addMessageArea}></textarea>
+                <textarea className={s.addMessageTextArea}
+                            ref={addMessageArea}
+                            placeholder='Enter your message'
+                            value ={ newMessageBody }
+                            onChange={ onNewMessageChange }></textarea>
                 </div>
                 <div>
-                    <button className={s.addMessageBtn} onClick={addMessage}>Add message</button>
+                    <button className={s.addMessageBtn} onClick={onSendMessageClick}>Add message</button>
                     <button className={s.clearTextAreaBtn} onClick={clearTextAreaBtn}>Clear</button>
                 </div>
+                
 
             </div>
 
