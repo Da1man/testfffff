@@ -15,6 +15,7 @@ const MyPosts = (props) => {
     let onPostChange = () => {
         let text = newPostElement.current.value;
         props.updateNewPostText(text);
+        console.log(window.store.getState().profilePage.newPostText)
     }
 
     return (
